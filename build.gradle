@@ -30,6 +30,22 @@ dependencies {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    //引入第三方jar,直接放到publib下就行
+    implementation fileTree(dir:'publib',includes:['*jar'])
+
+    // https://mvnrepository.com/artifact/mysql/mysql-connector-java
+    implementation group: 'mysql', name: 'mysql-connector-java', version: '5.1.49'
+
+    // https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-boot-starter
+    implementation group: 'com.baomidou', name: 'mybatis-plus-boot-starter', version: '3.3.2'
+    // https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-generator
+    implementation group: 'com.baomidou', name: 'mybatis-plus-generator', version: '3.3.2'
+    // https://mvnrepository.com/artifact/org.freemarker/freemarker
+    compile group: 'org.freemarker', name: 'freemarker', version: '2.3.30'
+
+
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
 }
 
 test {
