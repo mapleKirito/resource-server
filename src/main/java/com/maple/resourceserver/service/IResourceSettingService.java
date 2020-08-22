@@ -14,11 +14,14 @@ import com.baomidou.mybatisplus.extension.service.IService;
 public interface IResourceSettingService extends IService<ResourceSetting> {
 
     //获取资源路径
-    public String getUpload();
+    String getUpload();
+
+    //获取资源配置
+    ResourceSetting getResourceSetting();
 
     //校验资源路径状态
-    public boolean getUploadState();
+    boolean getUploadState();
 
     //资源实际路径
-    public String realPath(String resPath);
+    String realPath(String resPath);
 }

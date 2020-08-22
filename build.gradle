@@ -42,10 +42,12 @@ dependencies {
     // https://mvnrepository.com/artifact/com.baomidou/mybatis-plus-generator
     implementation group: 'com.baomidou', name: 'mybatis-plus-generator', version: '3.3.2'
     // https://mvnrepository.com/artifact/org.freemarker/freemarker
-    compile group: 'org.freemarker', name: 'freemarker', version: '2.3.30'
+    implementation group: 'org.freemarker', name: 'freemarker', version: '2.3.30'
 
+    implementation 'com.google.code.gson:gson:2.6.2'
 
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+
 }
 
 test {

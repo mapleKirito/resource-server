@@ -1,17 +1,16 @@
 package com.maple.resourceserver.service.impl;
 
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.maple.resourceserver.controller.ResourceSettingController;
 import com.maple.resourceserver.entity.ResourceSetting;
 import com.maple.resourceserver.mapper.ResourceSettingMapper;
 import com.maple.resourceserver.service.IResourceSettingService;
-import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.maple.resourceserver.utils.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
-
-import java.io.File;
 
 /**
  * <p>
@@ -39,18 +38,16 @@ public class ResourceSettingServiceImpl extends ServiceImpl<ResourceSettingMappe
     }
 
     @Override
+    public ResourceSetting getResourceSetting() {
+        ResourceSetting resourceSetting = resourceSettingMapper.selectById(1);
+        return resourceSetting;
+    }
+
+    @Override
     public boolean getUploadState() {
         boolean result=false;
         String path=resourceSettingMapper.getUpload();
-        if(StringUtils.isEmpty(path)){
-            return false;
-        }else {
-            File f=new File(path);
-            if(f.exists()&&f.isDirectory()){
-                result=true;
-            }
-        }
-        return result;
+        return FileUtils.existPath(path);
     }
 
     @Override

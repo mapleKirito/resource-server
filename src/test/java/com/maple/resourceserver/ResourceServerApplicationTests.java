@@ -2,6 +2,7 @@ package com.maple.resourceserver;
 
 import com.maple.resourceserver.mapper.ResourceSettingMapper;
 import com.maple.resourceserver.service.IResourceSettingService;
+import com.maple.resourceserver.utils.GsonUtil;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,6 +29,7 @@ class ResourceServerApplicationTests {
     void test1(){
         LOGGER.info("资源路径状态:"+resourceSettingService.getUploadState());
         LOGGER.info("资源路径:"+resourceSettingService.getUpload());
+        LOGGER.info("资源配置信息:"+ GsonUtil.GsonString(resourceSettingService.getResourceSetting()) );
     }
 
 }
